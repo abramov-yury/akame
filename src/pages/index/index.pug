@@ -1,0 +1,16 @@
+extends ../../templates/staffolding
+
+include ../../components/page-header/page-header
+include ../../components/page-footer/page-footer
+
+block variables
+  - title = 'Akame - hair salon: Main page'
+  - description = 'Main page'
+  - data = require('./index.json')
+
+block header
+  +page-header
+block main
+  main.page-content
+block footer
+  +page-footer
