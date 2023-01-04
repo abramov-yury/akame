@@ -1,6 +1,11 @@
+include ../menu/menu
+
 mixin app-header
 
-  header.app-header
+  -
+    name = "app-header"
+
+  header(class=name)
     h1.visually-hidden.
       Impressive online portfolio with full screen photos
-    .app-header__menu
+    +menu(name)

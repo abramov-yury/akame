@@ -1,0 +1,6 @@
+mixin helpers
+
+  -
+    getClassName = (name, parent) => (
+            parent ? `${parent}__${name} ${name}` : name
+    );
