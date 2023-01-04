@@ -1,15 +1,12 @@
 extends ../../templates/staffolding
 
-include ../../components/page-header/page-header
-include ../../components/page-footer/page-footer
+include ../../components/app-header/app-header
 
 block variables
   - title = 'Akame - impressive online portfolio with full screen photos'
   - data = require('./index.json')
 
 block header
-  +page-header
+  +app-header
 block main
-  main.page-content
-block footer
-  +page-footer
+  main.app-content
