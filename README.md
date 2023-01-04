@@ -1,1 +1,1 @@
-## Akame - website for your hair salon
+## Akame - impressive online portfolio with full screen photos
