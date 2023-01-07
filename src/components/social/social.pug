@@ -1,8 +1,9 @@
-mixin social(parent)
+mixin social(parent, modifier)
 
   -
     let name = "social"
     className = getClassName(name, parent)
+    className = modifier ? `${className} ${name}--${modifier}` : className
 
   ul(class=className)
     li(class=`${name}__item`)

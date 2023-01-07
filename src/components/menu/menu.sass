@@ -23,7 +23,11 @@
   cursor: pointer
 
   & rect
+    transition: fill .2s
     fill: var(--color-background--accent)
+
+  &:hover rect
+    fill: var(--color-figure--accent)
 
 .menu__content
   flex-grow: 1

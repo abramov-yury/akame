@@ -1,4 +1,5 @@
 include ../logo/logo
+include ../social/social
 
 mixin navigation(parent)
 
@@ -26,3 +27,5 @@ mixin navigation(parent)
           li(class=`${name}__item`)
             - linkClassName = item.active ? `${name}__link ${name}__link--active` : `${name}__link`
             a(class=linkClassName href="#" data-point=item.value) #{item.text}
+
+      +social(name, "flat")

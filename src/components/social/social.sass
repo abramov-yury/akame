@@ -11,6 +11,12 @@
 
   list-style: none
 
+.social--flat
+  flex-direction: row
+  height: auto
+
+  padding: 10px 0
+
 
 .social__item
   display: flex
@@ -31,4 +37,10 @@
   width: auto
   max-height: 100%
 
-  fill: var(--color-figure)
+  fill: var(--color-text--accent)
+
+  transition: fill .2s
+
+  .social__link:hover &,
+  .social__link:focus &
+    fill: var(--color-text--alternative)
