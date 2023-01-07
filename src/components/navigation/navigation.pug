@@ -1,5 +1,6 @@
 include ../logo/logo
 include ../social/social
+include ../copyright/copyright
 
 mixin navigation(parent)
 
@@ -29,3 +30,4 @@ mixin navigation(parent)
             a(class=linkClassName href="#" data-point=item.value) #{item.text}
 
       +social(name, "flat")
+      +copyright
