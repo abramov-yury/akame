@@ -1,0 +1,16 @@
+.logo
+  display: inline-flex
+  justify-content: center
+  align-items: center
+
+  background-color: var(--color-figure--accent)
+
+.logo__picture
+
+  & > path
+    transition: fill .2s
+    fill: var(--color-background)
+
+  .logo:hover & > path,
+  .logo:focus & > path
+    fill: var(--color-background--accent)
