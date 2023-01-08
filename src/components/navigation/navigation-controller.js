@@ -14,9 +14,16 @@ export class NavigationController {
 
   }
 
+  setHandlers () {
+
+    this.view.switchClickHandler();
+
+  }
+
   initiate () {
 
     this.view = new NavigationView(this.parameters);
+    this.setHandlers();
     render(this.container, this.view.getElement(), this.position);
 
   }

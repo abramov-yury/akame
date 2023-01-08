@@ -11,9 +11,18 @@
 
   top: 0
   left: 0
-  transform: translateX(-100%)
 
   background-color: var(--color-background--accent)
+
+  transform: translateX(-100%)
+  opacity: 0
+
+  transition-property: transform, opacity
+  transition-duration: .4s
+
+.navigation--shown
+  opacity: 1
+  transform: translateX(0)
 
 .navigation__switch
   grid-column: 1 / 1

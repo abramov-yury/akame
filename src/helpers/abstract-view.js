@@ -1,5 +1,3 @@
-import { createElement } from "./create-element.js";
-
 export class AbstractView {
 
   constructor () {
@@ -21,11 +19,20 @@ export class AbstractView {
 
   }
 
+  createElement () {
+
+    const newElement = document.createElement("div");
+    newElement.innerHTML = this.getTemplate();
+
+    return newElement.firstChild;
+
+  }
+
   getElement () {
 
     if (!this.element) {
 
-      this.element = createElement(this.getTemplate());
+      this.element = this.createElement();
 
     }
 

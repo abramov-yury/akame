@@ -1,5 +1,5 @@
 import { AbstractView } from "../../helpers/abstract-view.js";
-import { Mediator } from "../../helpers/mediator.js";
+import { MEDIATOR } from "../../helpers/mediator.js";
 
 const template = require("./navigation.pug");
 const createNavigationTemplate = (obj) => template(obj);
@@ -11,7 +11,12 @@ export class NavigationView extends AbstractView {
     super();
 
     this.parameters = parameters;
+    this.switch = this.getElement().querySelector(".navigation__switch");
+    this.cls = {
+      show: "navigation--shown",
+    };
     this.showNavigation = this.showNavigation.bind(this);
+    this.onSwitchClick = this.onSwitchClick.bind(this);
 
     this.setMediatorMethods();
 
@@ -25,13 +30,32 @@ export class NavigationView extends AbstractView {
 
   setMediatorMethods () {
 
-    Mediator.showNavigation = this.showNavigation;
+    MEDIATOR.showNavigation = this.showNavigation;
 
   }
 
   showNavigation () {
 
-    console.log(this.getElement());
+    this.getElement().classList.add(this.cls.show);
+
+  }
+
+  hideNavigation () {
+
+    this.getElement().classList.remove(this.cls.show);
+
+  }
+
+  onSwitchClick () {
+
+    this.hideNavigation();
+    MEDIATOR.showMenu();
+
+  }
+
+  switchClickHandler () {
+
+    this.switch.addEventListener("click", this.onSwitchClick);
 
   }
 

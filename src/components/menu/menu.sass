@@ -11,6 +11,13 @@
   top: 0
   left: 0
 
+  transition-property: transform, opacity
+  transition-duration: .4s
+
+.menu--hidden
+  opacity: 0
+  transform: translateX(-60px)
+
 .menu__switch
   width: 100%
   height: 90px
@@ -26,7 +33,8 @@
     transition: fill .2s
     fill: var(--color-background--accent)
 
-  &:hover rect
+  &:hover rect,
+  &:focus rect
     fill: var(--color-figure--accent)
 
 .menu__content

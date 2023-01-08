@@ -1,5 +1,5 @@
 import { AbstractView } from "../../helpers/abstract-view.js";
-import { Mediator } from "../../helpers/mediator.js";
+import { MEDIATOR } from "../../helpers/mediator.js";
 
 const template = require("./menu.pug");
 const createMenuTemplate = (obj) => template(obj);
@@ -13,6 +13,9 @@ export class MenuView extends AbstractView {
     this.parameters = parameters;
     this.switch = this.getElement().querySelector(".menu__switch");
 
+    this.showMenu = this.showMenu.bind(this);
+    this.onClickSwitch = this.onClickSwitch.bind(this);
+
   }
 
   getTemplate () {
@@ -21,9 +24,22 @@ export class MenuView extends AbstractView {
 
   }
 
+  hideMenu () {
+
+    this.getElement().classList.add("menu--hidden");
+
+  }
+
+  showMenu () {
+
+    this.getElement().classList.remove("menu--hidden");
+
+  }
+
   onClickSwitch () {
 
-    Mediator.showNavigation();
+    this.hideMenu();
+    MEDIATOR.showNavigation();
 
   }
 
