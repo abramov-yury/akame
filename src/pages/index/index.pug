@@ -1,19 +1,6 @@
 extends ../../templates/staffolding
 
 include ../../templates/helpers
-include ../../components/menu/menu
-include ../../components/navigation/navigation
 
 block variables
   - title = 'Akame - impressive online portfolio with full screen photos'
-  - data = require('./index.json')
-
-  +helpers
-
-block header
-  //+menu
-  +navigation
-block main
-  main.app-content
-    h1.visually-hidden.
-      Impressive online portfolio with full screen photos
