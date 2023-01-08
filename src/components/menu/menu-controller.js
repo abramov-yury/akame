@@ -14,9 +14,16 @@ export class MenuController {
 
   }
 
+  setHandlers () {
+
+    this.view.switchClickHandler();
+
+  }
+
   initiate () {
 
     this.view = new MenuView(this.parameters);
+    this.setHandlers();
     render(this.container, this.view.getElement(), this.position);
 
   }
