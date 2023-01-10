@@ -6,10 +6,12 @@ import { IntroController } from "../intro/intro-controller.js";
 
 export class ContentController {
 
-  constructor (container) {
+  constructor (container, parameters) {
 
     this.container = container;
+    this.parameters = parameters;
 
+    this.options = null;
     this.view = null;
     this.introController = null;
 
@@ -17,7 +19,7 @@ export class ContentController {
 
   initiate () {
 
-    this.view = new ContentView();
+    this.view = new ContentView(this.parameters);
     this.mountComponents();
     render(this.container, this.view.getElement());
 

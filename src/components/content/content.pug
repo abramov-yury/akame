@@ -1,3 +1,11 @@
-main.content
+include ../../templates/helpers
+
++helpers
+
+-
+  name = "content"
+  className = getClassName(name, locals.parent)
+
+main(class=className)
   h1.visually-hidden
     | Amazingly impressive online portfolio with full screen photos

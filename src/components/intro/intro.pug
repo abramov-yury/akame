@@ -2,4 +2,4 @@ section.intro
   h2.visually-hidden The best photos
   ul.intro__list
     each item in locals.pictures
-      li.intro__item #{item}
+      li.intro__item(data-value=item style=`z-index=${item}`) #{item}
