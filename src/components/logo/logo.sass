@@ -7,6 +7,8 @@
 
 .logo__picture
 
+  transition: scale .2s
+
   & > path
     transition: fill .2s
     fill: var(--color-background)
@@ -14,3 +16,6 @@
   .logo:hover & > path,
   .logo:focus & > path
     fill: var(--color-background--accent)
+
+  @media (min-width: $break-point--small)
+    transform: scale(1.2)

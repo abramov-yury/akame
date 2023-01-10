@@ -10,6 +10,12 @@
 
   list-style: none
 
+  transition: gap .2s
+
+  @media (min-width: $break-point--small)
+    &:not(.social--flat)
+      gap: 50px
+
 .social--flat
   flex-direction: row
   height: auto

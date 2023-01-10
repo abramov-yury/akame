@@ -1,6 +1,7 @@
 .menu
   z-index: 999
   position: fixed
+  overflow-y: auto
 
   display: flex
   flex-direction: column
@@ -11,18 +12,26 @@
   top: 0
   left: 0
 
-  transition-property: transform, opacity
+  box-shadow: 14px 0 103px rgb(0 0 0 / 8%)
+
+  transition-property: transform, opacity, width
   transition-duration: .4s
+
+  @media (min-width: $break-point--x-small)
+    width: 90px
 
 .menu--hidden
   opacity: 0
   transform: translateX(-60px)
 
+  @media (min-width: $break-point--x-small)
+    transform: translateX(-90px)
+
 .menu__switch
   width: 100%
   height: 90px
 
-  padding: 0
+  padding: 30px 0
   border: none
 
   background-color: var(--color-figure)
@@ -41,6 +50,7 @@
   flex-grow: 1
 
   width: 100%
+  padding: 20px 0
 
   background-color: var(--color-background--accent)
 
