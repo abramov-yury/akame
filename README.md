@@ -1,1 +1,1 @@
-## Akame - impressive online portfolio with full screen photos
+## Akame - amazingly impressive online portfolio with full screen photos
