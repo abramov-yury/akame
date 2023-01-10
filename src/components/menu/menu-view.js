@@ -6,11 +6,11 @@ const createMenuTemplate = (obj) => template(obj);
 
 export class MenuView extends AbstractView {
 
-  constructor (parameters) {
+  constructor (options) {
 
     super();
 
-    this.parameters = parameters;
+    this.options = options;
     this.switch = this.getElement().querySelector(".menu__switch");
 
     this.showMenu = this.showMenu.bind(this);
@@ -20,7 +20,7 @@ export class MenuView extends AbstractView {
 
   getTemplate () {
 
-    return createMenuTemplate(this.parameters);
+    return createMenuTemplate(this.options);
 
   }
 

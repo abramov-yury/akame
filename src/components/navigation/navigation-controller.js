@@ -4,11 +4,9 @@ import { NavigationView } from "./navigation-view.js";
 
 export class NavigationController {
 
-  constructor (container, parameters, position) {
+  constructor (container) {
 
     this.container = container;
-    this.position = position;
-    this.parameters = parameters;
 
     this.view = null;
 
@@ -22,9 +20,9 @@ export class NavigationController {
 
   initiate () {
 
-    this.view = new NavigationView(this.parameters);
+    this.view = new NavigationView();
     this.setHandlers();
-    render(this.container, this.view.getElement(), this.position);
+    render(this.container, this.view.getElement());
 
   }
 

@@ -6,11 +6,11 @@ const createNavigationTemplate = (obj) => template(obj);
 
 export class NavigationView extends AbstractView {
 
-  constructor (parameters) {
+  constructor (options) {
 
     super();
 
-    this.parameters = parameters;
+    this.options = options;
     this.switch = this.getElement().querySelector(".navigation__switch");
     this.cls = {
       show: "navigation--shown",
@@ -24,7 +24,7 @@ export class NavigationView extends AbstractView {
 
   getTemplate () {
 
-    return createNavigationTemplate(this.parameters);
+    return createNavigationTemplate(this.options);
 
   }
 

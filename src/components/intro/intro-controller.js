@@ -5,10 +5,9 @@ import { IntroModel } from "./intro-model.js";
 
 export class IntroController {
 
-  constructor (container, paremeters) {
+  constructor (container) {
 
     this.container = container;
-    this.paremeters = paremeters;
 
     this.model = null;
     this.view = null;

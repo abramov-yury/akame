@@ -5,9 +5,17 @@ const createContentTemplate = (obj) => template(obj);
 
 export class ContentView extends AbstractView {
 
+  constructor (options) {
+
+    super();
+
+    this.options = options;
+
+  }
+
   getTemplate () {
 
-    return createContentTemplate(this.parameters);
+    return createContentTemplate(this.options);
 
   }
 
