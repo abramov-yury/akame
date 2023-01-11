@@ -24,11 +24,15 @@ export class IntroView extends AbstractView {
   runSlider () {
 
     const items = this.getElement().querySelectorAll(".intro__item");
+
+    const breakpoint = 768;
     let index = 0;
 
     setInterval(() => {
 
-      items[index].style.opacity = 0;
+      if (document.documentElement.clientWidth >= breakpoint) return;
+
+      items[index].classList.add("intro__item--hidden");
 
       if (index === items.length - 1) {
 
@@ -40,7 +44,7 @@ export class IntroView extends AbstractView {
 
       }
 
-      items[index].style.opacity = 1;
+      items[index].classList.remove("intro__item--hidden");
 
     }, 2000);
 

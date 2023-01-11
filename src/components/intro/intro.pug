@@ -2,4 +2,5 @@ section.intro
   h2.visually-hidden The best photos
   ul.intro__list
     each item in locals.pictures
-      li.intro__item(data-value=item style=`z-index=${item}`) #{item}
+      - itemClassName = item > 1 ? "intro__item intro__item--hidden" : "intro__item"
+      li(class=itemClassName data-value=item style=`z-index: ${item}`) #{item}
