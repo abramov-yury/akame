@@ -7,6 +7,7 @@ $image-path : "../../assets/img/pictures/"
 .intro__list
   position: relative
   display: flex
+  flex-direction: row-reverse
   overflow: hidden
 
   width: 100%
@@ -31,10 +32,11 @@ $image-path : "../../assets/img/pictures/"
 
   background-color: var(--color-background)
 
-  transition: opacity 1s
+  transition: opacity .8s
 
   @media (min-width: $break-point--medium)
     opacity: 1
+    transition: opacity 0s, transform .4s
 
     &[data-index="2"]
       transform: translateX(60%)
