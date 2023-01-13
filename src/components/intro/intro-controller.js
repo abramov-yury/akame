@@ -9,25 +9,16 @@ export class IntroController {
 
     this.container = container;
 
-    this.model = null;
     this.view = null;
-    this.options = null;
-
-  }
-
-  setOptions () {
-
-    this.options = {
-      pictures: this.model.getPictures(),
-    };
+    this.model = null;
 
   }
 
   initiate () {
 
     this.model = new IntroModel();
-    this.setOptions();
-    this.view = new IntroView(this.options);
+    this.model.setData();
+    this.view = new IntroView(this.model.getData());
     render(this.container, this.view.getElement());
 
   }

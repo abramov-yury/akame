@@ -1,6 +1,19 @@
+include ../../templates/picture
+
 section.intro
   h2.visually-hidden The best photos
+
   ul.intro__list
-    each item in locals.pictures
-      - itemClassName = item > 1 ? "intro__item intro__item--hidden" : "intro__item"
-      li(class=itemClassName data-value=item style=`z-index: ${item}`) #{item}
+
+    -
+
+      let pictures = locals.pictures;
+
+    each item, index in pictures
+      - className = index > 0 ? "intro__item intro__item--hidden" : "intro__item"
+      li(class=className data-index=index+1 style=`z-index: ${index+1}`)
+        -
+          item.path = "img/pictures/";
+          item.parent = "intro"
+
+        +picture(item)

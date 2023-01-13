@@ -4,8 +4,6 @@ export class IntroModel {
 
     this.data = null;
 
-    this.setData();
-
   }
 
   setData () {
@@ -14,9 +12,9 @@ export class IntroModel {
 
   }
 
-  getPictures () {
+  getData () {
 
-    return this.data.pictures;
+    return this.data;
 
   }
 

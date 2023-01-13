@@ -26,6 +26,7 @@ export class IntroView extends AbstractView {
     const items = this.getElement().querySelectorAll(".intro__item");
 
     const breakpoint = 768;
+    const duration = 5000;
     let index = 0;
 
     setInterval(() => {
@@ -46,7 +47,7 @@ export class IntroView extends AbstractView {
 
       items[index].classList.remove("intro__item--hidden");
 
-    }, 2000);
+    }, duration);
 
   }
 

@@ -1,0 +1,23 @@
+mixin picture(obj)
+
+  -
+    let {path, name, alt, parent} = obj
+
+  picture
+    source(type="image/webp" srcset=`
+              ${path}${name}.webp,
+              ${path}${name}@2x.webp 2x,
+              ${path}${name}@3x.webp 3x,
+              ${path}${name}@4x.webp 4x
+            `)
+    img(
+      class=`${parent}__image`,
+      srcset=`
+                ${path}${name}@2x.jpg 2x,
+                ${path}${name}@3x.jpg 3x,
+                ${path}${name}@4x.jpg 4x
+              `
+      src=`${path}${name}.jpg`
+      alt=alt
+      loading="lazy"
+    )

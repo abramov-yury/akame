@@ -1,3 +1,9 @@
 {
-  "pictures": [1, 2, 3, 4, 5]
+  "pictures": [
+    {"name": "11565293", "alt": "Yard cat looking into your eyes"},
+    {"name": "371160", "alt": "Smiling girl with green hair"},
+    {"name": "13687010", "alt": "Delicate daisies"},
+    {"name": "2128270", "alt": "Closeup photo of a sandy beach"},
+    {"name": "1813862", "alt": "Coffee with beautiful foam in a turquoise cup"}
+  ]
 }
