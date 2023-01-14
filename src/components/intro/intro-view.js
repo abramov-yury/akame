@@ -16,9 +16,12 @@ export class IntroView extends AbstractView {
 
     this.cls = {
       itemHidden: "intro__item--hidden",
+      itemMoved: "intro__item--moved",
     };
 
     this.items = this.getElement().querySelectorAll(".intro__item");
+    this.onItemPointerOver = this.onItemPointerOver.bind(this);
+    this.onItemPointerLeave = this.onItemPointerLeave.bind(this);
 
     this.setHandlers();
     this.runSlider();
@@ -33,15 +36,56 @@ export class IntroView extends AbstractView {
 
   setHandlers () {
 
-    this.items.forEach((item) => item.addEventListener("pointerover", this.onItemPointOver));
+    this.items.forEach((item) => item.addEventListener("pointerover", this.onItemPointerOver));
+    this.items.forEach((item) => item.addEventListener("pointerleave", this.onItemPointerLeave));
 
   }
 
-  onItemPointOver (evt) {
+  moveItem (element) {
+
+    if (element.dataset.index < 2) return;
+
+    if (!element.classList.contains(this.cls.itemMoved)) {
+
+      element.classList.add(this.cls.itemMoved);
+
+    }
+
+  }
+
+  onItemPointerOver (evt) {
 
     if (!isBreakPoint(mediumBreakpoint)) return;
 
-    console.log(evt.target);
+    this.items.forEach((item) => {
+
+      if (+item.dataset.index > +evt.currentTarget.dataset.index) {
+
+        this.moveItem(item);
+        return;
+
+      }
+
+      if (item.classList.contains(this.cls.itemMoved)) {
+
+        item.classList.remove(this.cls.itemMoved);
+
+      }
+
+    });
+
+  }
+
+  onItemPointerLeave (evt) {
+
+    if (!isBreakPoint(mediumBreakpoint)) return;
+
+    this.items.forEach((item) => {
+
+      if (!evt.relatedTarget) return;
+      this.moveItem(item);
+
+    });
 
   }
 

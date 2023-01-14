@@ -39,6 +39,20 @@ $image-path : "../../assets/img/pictures/"
     transition: opacity 0s, transform .4s
 
     &[data-index="2"]
+      transform: translateX(10%)
+
+    &[data-index="3"]
+      transform: translateX(20%)
+
+    &[data-index="4"]
+      transform: translateX(30%)
+
+    &[data-index="5"]
+      transform: translateX(40%)
+
+.intro__item--moved
+  @media (min-width: $break-point--medium)
+    &[data-index="2"]
       transform: translateX(60%)
 
     &[data-index="3"]

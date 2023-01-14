@@ -10,7 +10,7 @@ section.intro
       let pictures = locals.pictures;
 
     each item, index in pictures
-      - className = index > 0 ? "intro__item intro__item--hidden" : "intro__item"
+      - className = index > 0 ? "intro__item intro__item--hidden intro__item--moved" : "intro__item"
       li(class=className data-index=index+1 style=`z-index: ${index+1}`)
         -
           item.path = "img/pictures/";
