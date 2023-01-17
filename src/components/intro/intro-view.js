@@ -15,6 +15,7 @@ export class IntroView extends AbstractView {
     this.options = options;
 
     this.cls = {
+      item: "intro__item",
       itemHidden: "intro__item--hidden",
       itemMoved: "intro__item--moved",
       itemMasked: "intro__item--masked",
@@ -54,9 +55,30 @@ export class IntroView extends AbstractView {
 
   }
 
-  displaceItem (element) {
+  displaceNextSibling (evt) {
 
-    console.log(element);
+    const poster = evt.currentTarget;
+
+    if (!(poster.previousSibling && poster.nextSibling)) return;
+    if (!poster.classList.contains(this.cls.itemMoved)) return;
+
+    const matrix = getComputedStyle(poster.nextSibling).transform;
+    const matrixValues = matrix.match(/matrix.*\((.+)\)/)[1].split(", ");
+    const x = +matrixValues[4];
+    const newValue = x - (poster.parentElement.offsetWidth * .04);
+
+    poster.nextSibling.style.transform = `translateX(${newValue}px)`;
+
+    setTimeout(() => poster.nextSibling.style.transform = "", 400);
+
+  }
+
+  removeShift (evt) {
+
+    if (!evt.relatedTarget) return;
+    if (!evt.relatedTarget.classList.contains(this.cls.item)) return;
+    if (!evt.relatedTarget.style.transform) return;
+    evt.relatedTarget.style.transform = "";
 
   }
 
@@ -87,14 +109,15 @@ export class IntroView extends AbstractView {
 
     if (!isBreakPoint(mediumBreakpoint)) return;
 
-    this.hideMask(evt.currentTarget);
-    this.displaceItem(evt.currentTarget);
+    this.displaceNextSibling(evt); // the first
+    this.hideMask(evt.currentTarget); // the second
 
     this.items.forEach((item) => {
 
       if (+item.dataset.index > +evt.currentTarget.dataset.index) {
 
         this.moveItem(item);
+
         return;
 
       }
@@ -113,9 +136,14 @@ export class IntroView extends AbstractView {
 
     if (!isBreakPoint(mediumBreakpoint)) return;
 
+    this.removeShift(evt);
+
     this.items.forEach((item) => {
 
       if (!evt.relatedTarget) return;
+      if (!evt.relatedTarget.classList.contains(this.cls.item)) return;
+      if (!evt.relatedTarget.classList.contains(this.cls.itemMoved)) return;
+
       this.moveItem(item);
 
     });

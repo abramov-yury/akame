@@ -22,7 +22,7 @@ module.exports = {
     "computed-property-spacing": ["error", "never"],
     "comma-spacing": "error",
     "block-spacing": "error",
-    "max-len": ["error", { code: 100 }],
+    "max-len": ["error", { code: 140 }],
     "object-curly-spacing": ["error", "always"],
     "array-bracket-spacing": ["error", "never"],
     "space-in-parens": ["error", "never"],
