@@ -3,7 +3,7 @@ mixin picture(obj)
   -
     let {path, name, alt, parent} = obj
 
-  picture
+  picture(class=`${parent}__picture`)
     source(type="image/webp" srcset=`
               ${path}${name}.webp,
               ${path}${name}@2x.webp 2x,

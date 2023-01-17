@@ -17,6 +17,7 @@ export class IntroView extends AbstractView {
     this.cls = {
       itemHidden: "intro__item--hidden",
       itemMoved: "intro__item--moved",
+      itemMasked: "intro__item--masked",
     };
 
     this.items = this.getElement().querySelectorAll(".intro__item");
@@ -53,9 +54,41 @@ export class IntroView extends AbstractView {
 
   }
 
+  displaceItem (element) {
+
+    console.log(element);
+
+  }
+
+  hideMask (currentElement) {
+
+    const isCurrentElement = (item) => +item.dataset.index === +currentElement.dataset.index;
+    const isClassName = (item) => item.classList.contains(this.cls.itemMasked);
+
+    this.items.forEach((item) => {
+
+      if (isCurrentElement(item) && isClassName(item)) {
+
+        item.classList.remove(this.cls.itemMasked);
+
+      }
+
+      if (!isCurrentElement(item) && !isClassName(item)) {
+
+        item.classList.add(this.cls.itemMasked);
+
+      }
+
+    });
+
+  }
+
   onItemPointerOver (evt) {
 
     if (!isBreakPoint(mediumBreakpoint)) return;
+
+    this.hideMask(evt.currentTarget);
+    this.displaceItem(evt.currentTarget);
 
     this.items.forEach((item) => {
 
