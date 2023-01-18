@@ -1,4 +1,5 @@
 $image-path : "../../assets/img/pictures/"
+$minimum-shift : 68%
 
 .intro
   width: 100%
@@ -68,7 +69,7 @@ $image-path : "../../assets/img/pictures/"
 .intro__item--moved
   @media (min-width: $break-point--medium)
     &[data-index="2"]
-      transform: translateX(68%)
+      transform: translateX($minimum-shift)
 
     &[data-index="3"]
       transform: translateX(76%)
@@ -91,6 +92,91 @@ $image-path : "../../assets/img/pictures/"
   @media (min-width: $break-point--medium)
     opacity: 1
 
+.intro__figure
+  position: relative
+  flex-grow: 1
+  display: flex
+
+  margin: 0
+
+.intro__figcaption
+  z-index: 99
+  box-sizing: border-box
+  position: absolute
+
+  display: flex
+  flex-direction: column-reverse
+  align-items: center
+  gap: 6px
+
+  width: 100%
+  padding: 6px 8px 32px 8px
+
+  left: 50%
+  bottom: 0
+  transform: translateX(-50%)
+
+  transition-property: opacity, transform
+  transition-delay: .4s
+  transition-duration: .4s
+
+  @media (min-width: $break-point--small)
+    width: 86%
+
+  @media (min-width: $break-point--medium)
+    align-items: flex-start
+    width: $minimum-shift
+    padding: 10px 12px 32px 12px
+
+    left: 0
+    transform: translateX(0)
+
+    .intro__item--masked &
+      opacity: 0
+      transform: translateY(-50%)
+
+      transition-property: opacity, transform
+      transition-delay: 0s
+      transition-duration: 0s
+
+.intro__subtitle
+  margin: 0
+
+  font-size: 24px
+  font-weight: 700
+  line-height: 1.2
+  text-align: center
+  color: var(--color-text-light)
+
+  text-shadow: 0 0 2px var(--color-figure)
+
+  @media (min-width: $break-point--x-small)
+    font-size: 36px
+
+  @media (min-width: $break-point--small)
+    font-size: 48px
+
+  @media (min-width: $break-point--medium)
+    text-align: start
+
+  @media (min-width: $break-point--large)
+    font-size: 60px
+
+.intro__category
+  display: inline-flex
+  justify-content: center
+  align-items: center
+
+  padding: 4px 20px
+
+  font-size: 12px
+  font-weight: 600
+  text-transform: uppercase
+  color: var(--color-text--accent)
+
+  background-color: var(--color-background)
+  border-radius: 2px
+
 .intro__picture
   flex-grow: 1
 
@@ -108,7 +194,7 @@ $image-path : "../../assets/img/pictures/"
     object-position: 60% center
 
   @media (min-width: $break-point--medium)
-    width: 100% * .7
+    width: 70%
 
   .intro__item--masked &
     @media (min-width: $break-point--medium)

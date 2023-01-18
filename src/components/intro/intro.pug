@@ -15,5 +15,8 @@ section.intro
         -
           item.path = "img/pictures/";
           item.parent = "intro"
-
-        +picture(item)
+        figure.intro__figure
+          figcaption.intro__figcaption
+            p.intro__subtitle  #{item.title}
+            span.intro__category #{item.category}
+          +picture(item)
