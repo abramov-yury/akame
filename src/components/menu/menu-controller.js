@@ -11,11 +11,13 @@ export class MenuController {
 
     this.view = null;
 
+    this.onClickSwitch = this.onClickSwitch.bind(this);
+
   }
 
   setHandlers () {
 
-    this.view.switchClickHandler();
+    this.view.switchClickHandler(this.onClickSwitch);
 
   }
 
@@ -28,9 +30,16 @@ export class MenuController {
   initiate () {
 
     this.view = new MenuView();
-    this.setHandlers();
     this.setMediatorMethods();
+    this.setHandlers();
     render(this.container, this.view.getElement());
+
+  }
+
+  onClickSwitch () {
+
+    this.view.hideMenu();
+    MEDIATOR.showNavigation();
 
   }
 
