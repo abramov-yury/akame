@@ -14,6 +14,8 @@ export class NavigationView extends AbstractView {
 
     this.cls = {
       show: "navigation--shown",
+      link: "navigation__link",
+      active: "navigation__link--active",
     };
 
     this.showNavigation = this.showNavigation.bind(this);
@@ -38,9 +40,34 @@ export class NavigationView extends AbstractView {
 
   }
 
+  getCurrentActiveLink () {
+
+    return this.getElement().querySelector(`.${this.cls.active}`);
+
+  }
+
+  makeLinkActive (item) {
+
+    this.getCurrentActiveLink().classList.toggle(this.cls.active);
+    item.classList.toggle(this.cls.active);
+
+  }
+
+  getNavigationLinks () {
+
+    return this.getElement().querySelectorAll(`.${this.cls.link}`);
+
+  }
+
   switchClickHandler (callback) {
 
     this.switch.addEventListener("click", callback);
+
+  }
+
+  switchNavigationHandler (callback) {
+
+    this.getNavigationLinks().forEach((item) => item.addEventListener("click", callback));
 
   }
 

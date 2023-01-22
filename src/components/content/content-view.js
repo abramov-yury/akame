@@ -11,11 +11,19 @@ export class ContentView extends AbstractView {
 
     this.options = options;
 
+    this.clear = this.clear.bind(this);
+
   }
 
   getTemplate () {
 
     return createContentTemplate(this.options);
+
+  }
+
+  clear () {
+
+    this.getElement().innerHTML = "";
 
   }
 

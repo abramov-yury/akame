@@ -7,13 +7,7 @@ include ../../templates/helpers
 
 -
   let name = "navigation"
-  points = [
-    {text: "Home", value: "home", active: true},
-    {text: "About", value: "about"},
-    {text: "Gallery", value: "gallery"},
-    {text: "Blog", value: "blog"},
-    {text: "Contact", value: "contact"},
-  ]
+  points = require("./navigation.json")
 
 nav(class=name)
   button(class=`${name}__switch` type="button")

@@ -1,0 +1,7 @@
+[
+  {"text": "Home", "value": "home", "active": true},
+  {"text": "About", "value": "about"},
+  {"text": "Gallery", "value": "gallery"},
+  {"text": "Blog", "value": "blog"},
+  {"text": "Contact", "value": "contact"}
+]

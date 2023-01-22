@@ -12,4 +12,22 @@ export const MEDIATOR = {
 
   },
 
+  clearContent () {
+
+    throw new Error("Mediator method not implemented: CLEAR_CONTENT");
+
+  },
+
+  mountIntroController () {
+
+    throw new Error("Mediator method not implemented: MOUNT_INTRO_CONTROLLER");
+
+  },
+
+  mountGalleryController () {
+
+    throw new Error("Mediator method not implemented: MOUNT_GALLERY_CONTROLLER");
+
+  },
+
 };
