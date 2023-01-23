@@ -35,14 +35,8 @@ export class ContentController {
 
     this.view = new ContentView(this.parameters);
     this.setMediatorMethods();
-    this.mountComponents();
-    render(this.container, this.view.getElement());
-
-  }
-
-  mountComponents () {
-
     this.mountIntroController();
+    render(this.container, this.view.getElement());
 
   }
 

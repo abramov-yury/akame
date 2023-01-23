@@ -1,0 +1,72 @@
+.gallery
+  display: flex
+  flex-direction: column
+
+.gallery__header
+  display: flex
+  flex-direction: column
+  gap: 20px
+
+  padding: 30px 15px 20px
+
+  @media(min-width: $break-point--medium)
+    box-sizing: border-box
+    flex-direction: row
+    align-items: center
+    justify-content: space-between
+
+    min-height: 90px
+    padding: 30px 15px
+
+  @media(min-width: $break-point--extra-large)
+    justify-content: space-around
+
+.gallery__title,
+.gallery__filter
+  box-sizing: border-box
+
+  margin: 0
+  padding: 0
+
+.gallery__title
+  font-size: 24px
+  font-weight: 600
+  line-height: 1.2
+  color: var(--color-text--accent)
+
+  cursor: default
+
+.gallery__filter
+  display: flex
+  flex-wrap: wrap
+
+  list-style: none
+
+.gallery__filter-item
+  display: flex
+  align-items: center
+
+  &:not(:last-child)
+    margin-right: 15px
+
+.gallery__filter-label
+  font-size: 16px
+  font-weight: 500
+  line-height: 1.5
+  color: var(--color-text--accent)
+
+  cursor: pointer
+
+  transition: color .2s, font-size .2s
+
+  &:hover, &:focus
+    color: var(--color-text--alternative)
+
+  .gallery__filter-input:checked + &
+    color: var(--color-text--alternative)
+
+  @media(min-width: $break-point--medium)
+    font-size: 18px
+
+
+

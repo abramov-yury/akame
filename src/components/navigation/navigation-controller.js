@@ -82,6 +82,9 @@ export class NavigationController {
 
     this.mode = evt.currentTarget.dataset.point;
 
+    this.view.hideNavigation();
+    MEDIATOR.showMenu();
+
   }
 
 }
