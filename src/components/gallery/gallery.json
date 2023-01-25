@@ -1,5 +1,8 @@
 {
   "filters": [
     "all", "animals", "people", "nature", "travel", "coffee"
+  ],
+  "pictures": [
+    {"name": "001", "title": "After the sunset", "category": "nature"}
   ]
 }
