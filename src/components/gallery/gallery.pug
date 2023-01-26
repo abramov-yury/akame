@@ -14,13 +14,15 @@ section.gallery
           input.gallery__filter-input.visually-hidden(type="radio" name="gallery-filter" id=`gallery-filter--${item}` value=item checked=isChecked)
           label.gallery__filter-label(for=`gallery-filter--${item}`) #{ucFirst(item)}
   ul.gallery__list
-    - path = "./img/gallery/"
+    -
+      path = "./img/gallery/"
+      breakpoint = 768
     each item in data.pictures
       li.gallery__item
         picture.gallery__picture
           source(
             type="image/webp"
-            media="(min-width: 992px)"
+            media=`(min-width: ${breakpoint}px)`
             srcset=`
                   ${path}${item.name}--m.webp,
                   ${path}${item.name}--m@2x.webp 2x,
@@ -35,7 +37,7 @@ section.gallery
           `)
           source(
             type="image/jpeg"
-            media="(min-width: 992px)"
+            media=`(min-width: ${breakpoint}px)`
             srcset=`
                   ${path}${item.name}--m.jpg,
                   ${path}${item.name}--m@2x.jpg 2x,
