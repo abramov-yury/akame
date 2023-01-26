@@ -1,6 +1,7 @@
 include ../../templates/helpers
 
-- data = require("./gallery.json")
+-
+  filters = require("./gallery.json").filters
 
 +helpers
 
@@ -8,16 +9,18 @@ section.gallery
   header.gallery__header
     h2.gallery__title Gallery
     ul.gallery__filter
-      each item, index in data.filters
+      each item, index in filters
         li.gallery__filter-item
           - isChecked = index === 0 ? "checked" : false;
           input.gallery__filter-input.visually-hidden(type="radio" name="gallery-filter" id=`gallery-filter--${item}` value=item checked=isChecked)
           label.gallery__filter-label(for=`gallery-filter--${item}`) #{ucFirst(item)}
   ul.gallery__list
     -
+      pictures = locals.pictures
+      shuffle(pictures)
       path = "./img/gallery/"
       breakpoint = 768
-    each item in data.pictures
+    each item in pictures
       li.gallery__item
         picture.gallery__picture
           source(
