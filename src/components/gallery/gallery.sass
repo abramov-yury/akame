@@ -69,27 +69,53 @@
     font-size: 18px
 
 .gallery__list
+  --gap: 10px
+
   box-sizing: border-box
-  display: grid
-  row-gap: 12px
 
   width: 100%
   margin: 0
-  padding: 0
+  padding: 0 0 var(--gap) 0
 
   list-style: none
+
+  transition-property: column-gap, padding-bottom
+  transition-duration: .4s
+
+  @media(min-width: $break-point--x-small)
+    --gap: 16px
+
+  @media (min-width: $break-point--small)
+    column-count: 2
+    column-gap: var(--gap)
+    padding-bottom: var(--gap)
+
+  @media (min-width: 856px)
+    column-count: 3
+
+  @media (min-width: $break-point--large)
+    --gap: 24px
+
+  @media (min-width: $break-point--extra-large)
+    column-count: 4
 
 .gallery__item
   display: flex
   justify-content: center
   align-items: center
 
+  box-shadow: 14px 0 103px rgba(0, 0, 0, 0.08)
+
+  transition: margin .4s
+
+  &:not(:last-child)
+    margin-bottom: var(--gap)
+
 .gallery__picture
   flex-grow: 1
 
 .gallery__image
-  width: 100%
-  height: auto
+  max-width: 100%
 
   vertical-align: middle
 
