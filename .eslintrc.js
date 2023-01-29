@@ -43,7 +43,7 @@ module.exports = {
     eqeqeq: ["error", "always"],
     "no-unused-vars": "error",
     "operator-linebreak": ["error", "none"],
-    "no-plusplus": "error",
+    "no-plusplus": ["error", { allowForLoopAfterthoughts: true }],
     "no-multi-assign": "error",
     "one-var": ["error", "never"],
     "no-undef": "error",

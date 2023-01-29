@@ -1,4 +1,5 @@
 import { render } from "../../helpers/render.js";
+import { shuffle } from "../../helpers/shuffle.js";
 
 import { GalleryView } from "./gallery-view.js";
 import { GalleryModel } from "./gallery-model.js";
@@ -45,6 +46,8 @@ export class GalleryController {
 
   createPhotos (arr) {
 
+    shuffle(arr);
+
     arr.forEach((item) => {
 
       item.parent = "gallery";
@@ -54,9 +57,28 @@ export class GalleryController {
 
   }
 
+  getFilteredPhotos (value) {
+
+    if (value === this.model.filters[0]) return this.model.pictures;
+
+    const arr = [];
+
+    this.model.pictures.forEach((item) => {
+
+      if (item.category === value) arr.push(item);
+
+    });
+
+    return arr;
+
+  }
+
   onFilterControlChange (evt) {
 
+    const arr = this.getFilteredPhotos(evt.target.value);
+
     this.view.clearGallery();
+    this.createPhotos(arr);
 
   }
 
