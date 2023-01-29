@@ -13,10 +13,23 @@ export class PhotoController {
 
   }
 
+  setHandlers () {
+
+    this.view.photoClickHandler(this.onPhotoClick);
+
+  }
+
   initiate () {
 
     this.view = new PhotoView(this.options);
+    this.setHandlers();
     render(this.container, this.view.getElement());
+
+  }
+
+  onPhotoClick (evt) {
+
+    console.log(evt.target);
 
   }
 

@@ -1,42 +1,13 @@
 include ../../templates/helpers
+include ../../templates/picture
 
 +helpers
 
 -
   className = getClassName("photo", locals.parent)
-  path = "./img/gallery/"
-  breakpoint = 768
+  locals.path = "./img/gallery/"
+  locals.breakpoint = 768
+  locals.parent = "photo"
 
 li(class=className)
-  picture.photo__picture
-    source(
-      type="image/webp"
-      media=`(min-width: ${breakpoint}px)`
-      srcset=`
-                  ${path}${locals.name}--m.webp,
-                  ${path}${locals.name}--m@2x.webp 2x,
-                  ${path}${locals.name}--m@3x.webp 3x
-          `)
-    source(
-      type="image/webp"
-      srcset=`
-                  ${path}${locals.name}--s.webp,
-                  ${path}${locals.name}--s@2x.webp 2x,
-                  ${path}${locals.name}--s@3x.webp 3x
-          `)
-    source(
-      type="image/jpeg"
-      media=`(min-width: ${breakpoint}px)`
-      srcset=`
-                  ${path}${locals.name}--m.jpg,
-                  ${path}${locals.name}--m@2x.jpg 2x,
-                  ${path}${locals.name}--m@3x.jpg 3x
-          `)
-    img.photo__image(
-      srcset=`
-                  ${path}${locals.name}--s@2x.jpg 2x,
-                  ${path}${locals.name}--s@3x.jpg 3x`
-      src=`${path}${locals.name}--s.jpg`
-      alt=locals.title
-      loading="lazy"
-    )
+  +picture(locals, true)

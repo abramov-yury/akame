@@ -19,4 +19,10 @@ export class PhotoView extends AbstractView {
 
   }
 
+  photoClickHandler (callback) {
+
+    this.getElement().addEventListener("click", callback);
+
+  }
+
 }
