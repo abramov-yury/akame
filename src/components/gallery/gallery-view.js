@@ -19,4 +19,29 @@ export class GalleryView extends AbstractView {
 
   }
 
+  getFiltersControls () {
+
+    return this.getElement().querySelectorAll(".gallery__filter-input");
+
+  }
+
+  getGalleryList () {
+
+    return this.getElement().querySelector(".gallery__list");
+
+  }
+
+  clearGallery () {
+
+    if (!this.getGalleryList().childNodes.length) return;
+    this.getGalleryList().innerHTML = "";
+
+  }
+
+  setFiltersControlsHandler (callback) {
+
+    this.getFiltersControls().forEach((item) => item.addEventListener("change", callback));
+
+  }
+
 }

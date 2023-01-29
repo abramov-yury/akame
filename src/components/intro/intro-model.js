@@ -12,10 +12,4 @@ export class IntroModel {
 
   }
 
-  getData () {
-
-    return this.data;
-
-  }
-
 }

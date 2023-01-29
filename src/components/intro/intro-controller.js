@@ -18,7 +18,7 @@ export class IntroController {
 
     this.model = new IntroModel();
     this.model.setData();
-    this.view = new IntroView(this.model.getData());
+    this.view = new IntroView(this.model.data);
     render(this.container, this.view.getElement());
 
   }

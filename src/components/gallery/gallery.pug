@@ -1,56 +1,14 @@
 include ../../templates/helpers
 
--
-  filters = require("./gallery.json").filters
-
 +helpers
 
 section.gallery
   header.gallery__header
     h2.gallery__title Gallery
     ul.gallery__filter
-      each item, index in filters
+      each item, index in locals
         li.gallery__filter-item
           - isChecked = index === 0 ? "checked" : false;
           input.gallery__filter-input.visually-hidden(type="radio" name="gallery-filter" id=`gallery-filter--${item}` value=item checked=isChecked)
           label.gallery__filter-label(for=`gallery-filter--${item}`) #{ucFirst(item)}
   ul.gallery__list
-    -
-      pictures = locals.pictures
-      shuffle(pictures)
-      path = "./img/gallery/"
-      breakpoint = 768
-    each item in pictures
-      li.gallery__item
-        picture.gallery__picture
-          source(
-            type="image/webp"
-            media=`(min-width: ${breakpoint}px)`
-            srcset=`
-                  ${path}${item.name}--m.webp,
-                  ${path}${item.name}--m@2x.webp 2x,
-                  ${path}${item.name}--m@3x.webp 3x
-          `)
-          source(
-            type="image/webp"
-            srcset=`
-                  ${path}${item.name}--s.webp,
-                  ${path}${item.name}--s@2x.webp 2x,
-                  ${path}${item.name}--s@3x.webp 3x
-          `)
-          source(
-            type="image/jpeg"
-            media=`(min-width: ${breakpoint}px)`
-            srcset=`
-                  ${path}${item.name}--m.jpg,
-                  ${path}${item.name}--m@2x.jpg 2x,
-                  ${path}${item.name}--m@3x.jpg 3x
-          `)
-          img.gallery__image(
-            srcset=`
-                  ${path}${item.name}--s@2x.jpg 2x,
-                  ${path}${item.name}--s@3x.jpg 3x`
-            src=`${path}${item.name}--s.jpg`
-            alt=item.title
-            loading="lazy"
-          )
