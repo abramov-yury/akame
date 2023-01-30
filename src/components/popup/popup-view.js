@@ -19,4 +19,16 @@ export class PopupView extends AbstractView {
 
   }
 
+  getButtonCross () {
+
+    return this.getElement().querySelector(".popup__button--cross");
+
+  }
+
+  buttonCrossHandler (callback) {
+
+    this.getButtonCross().addEventListener("click", callback);
+
+  }
+
 }

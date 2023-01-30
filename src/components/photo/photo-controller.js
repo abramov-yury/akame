@@ -30,11 +30,9 @@ export class PhotoController {
 
   }
 
-  onPhotoClick (evt) {
+  onPhotoClick () {
 
     MEDIATOR.createPopup(this.options);
-    console.log(evt.target);
-    console.log(this.options);
 
   }
 

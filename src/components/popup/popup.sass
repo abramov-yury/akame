@@ -1,11 +1,11 @@
+$break-point: 640px
+
 .popup
   z-index: 199
+  overflow-y: auto
   position: fixed
 
   display: flex
-  flex-direction: column
-  justify-content: center
-  align-items: center
 
   top: 0
   right: 0
@@ -14,11 +14,43 @@
 
   background-color: var(--color-background--alternative)
 
+.popup__picture-wrapper
+  max-width: 1280px
+  margin: auto
+
 .popup__image
   max-width: 100%
   height: auto
 
   vertical-align: middle
 
-  object-fit: cover
-  object-position: center
+.popup__button
+  position: fixed
+
+  display: flex
+  justify-content: center
+  align-items: center
+
+  width: 44px
+  height: 44px
+  padding: 0
+
+  border-radius: 50%
+  border: none
+  background-color: rgb(gray, .1)
+
+  cursor: pointer
+  transition: background-color .2s
+
+  &:hover, &:focus
+    background-color: rgb(gray, .4)
+
+  & > svg
+    width: 50%
+    height: 50%
+
+    fill: var(--color-text-light)
+
+.popup__button--cross
+  top: 10px
+  left: 10px

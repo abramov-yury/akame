@@ -42,8 +42,6 @@ export class AppController {
 
   createPopup (options) {
 
-    document.body.style.overflow = "hidden";
-
     this.popupController = new PopupController(document.body, options);
     this.popupController.initiate();
 

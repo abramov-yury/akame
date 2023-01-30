@@ -2,8 +2,12 @@ include ../../templates/picture
 
 -
   locals.path = "./img/gallery/"
-  locals.breakpoint = 768
+  locals.breakpoint = 640
   locals.parent = "popup"
 
 div.popup
-  +picture(locals, true)
+  div.popup__picture-wrapper
+    +picture(locals, true)
+  button.popup__button.popup__button--cross(type="button")
+    svg(viewBox="0 0 24 24" width="24" height="24" role="presentation" aria-hidden="true")
+      use(href="#cross-icon")
