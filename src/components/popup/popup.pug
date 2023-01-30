@@ -1,0 +1,9 @@
+include ../../templates/picture
+
+-
+  locals.path = "./img/gallery/"
+  locals.breakpoint = 768
+  locals.parent = "popup"
+
+div.popup
+  +picture(locals, true)

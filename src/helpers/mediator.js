@@ -30,4 +30,10 @@ export const MEDIATOR = {
 
   },
 
+  createPopup () {
+
+    throw new Error("Mediator method not implemented: CREATE_POPUP");
+
+  },
+
 };

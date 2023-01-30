@@ -1,3 +1,4 @@
+import { MEDIATOR } from "../../helpers/mediator.js";
 import { render } from "../../helpers/render.js";
 
 import { PhotoView } from "./photo-view.js";
@@ -10,6 +11,8 @@ export class PhotoController {
     this.options = options;
 
     this.view = null;
+
+    this.onPhotoClick = this.onPhotoClick.bind(this);
 
   }
 
@@ -29,7 +32,9 @@ export class PhotoController {
 
   onPhotoClick (evt) {
 
+    MEDIATOR.createPopup(this.options);
     console.log(evt.target);
+    console.log(this.options);
 
   }
 
