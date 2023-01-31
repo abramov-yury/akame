@@ -1,5 +1,3 @@
-$break-point: 640px
-
 .popup
   z-index: 199
   overflow-y: auto
@@ -20,13 +18,31 @@ $break-point: 640px
 
 .popup__image
   max-width: 100%
-  height: auto
+  max-height: 100vh
 
   vertical-align: middle
 
-.popup__button
+.popup__controls-wrapper
+  box-sizing: border-box
   position: fixed
 
+  display: flex
+  justify-content: center
+  align-items: center
+  gap: 20px
+
+  top: 0
+  left: 0
+
+  width: 100%
+  padding: 10px
+
+  background-color: transparent
+
+  @media (min-width: $break-point--small)
+    gap: 40px
+
+.popup__button
   display: flex
   justify-content: center
   align-items: center
@@ -37,13 +53,10 @@ $break-point: 640px
 
   border-radius: 50%
   border: none
-  background-color: rgb(gray, .1)
+  background-color: rgb(gray, .4)
 
   cursor: pointer
   transition: background-color .2s
-
-  &:hover, &:focus
-    background-color: rgb(gray, .4)
 
   & > svg
     width: 50%
@@ -51,6 +64,9 @@ $break-point: 640px
 
     fill: var(--color-text-light)
 
-.popup__button--cross
-  top: 10px
-  left: 10px
+  &:hover, &:focus
+    background-color: rgb(#fff, .4)
+    outline: none
+
+.popup__button--forward-arrow
+  transform: rotate(180deg)

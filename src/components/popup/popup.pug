@@ -8,6 +8,16 @@ include ../../templates/picture
 div.popup
   div.popup__picture-wrapper
     +picture(locals, true)
-  button.popup__button.popup__button--cross(type="button")
-    svg(viewBox="0 0 24 24" width="24" height="24" role="presentation" aria-hidden="true")
-      use(href="#cross-icon")
+  div.popup__controls-wrapper
+    button.popup__button.popup__button--cross(type="button")
+      svg(viewBox="0 0 18 18" width="18" height="18" role="presentation" aria-hidden="true")
+        use(href="#cross-icon")
+    button.popup__button.popup__button--back-arrow(type="button")
+      svg(viewBox="0 0 12 14" width="12" height="14" role="presentation" aria-hidden="true")
+        use(href="#back-arrow-icon")
+    button.popup__button.popup__button--forward-arrow(type="button")
+      svg(viewBox="0 0 12 14" width="12" height="14" role="presentation" aria-hidden="true")
+        use(href="#back-arrow-icon")
+    button.popup__button.popup__button--scale(type="button")
+      svg(viewBox="0 0 16 16" width="16" height="16" role="presentation" aria-hidden="true")
+        use(href="#plus-icon")
