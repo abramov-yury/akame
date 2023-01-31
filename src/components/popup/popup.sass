@@ -16,11 +16,26 @@
   max-width: 1280px
   margin: auto
 
+  @media (min-width: $break-point--picture)
+    max-width: 72%  // from the bulldozer
+
+.popup__picture-wrapper--zoomed
+  max-width: 1920px
+
 .popup__image
-  max-width: 100%
-  max-height: 100vh
+  width: 100%
+  height: auto
 
   vertical-align: middle
+
+  @media (min-width: $break-point--picture)
+    max-height: 100vh
+    object-position: center
+    object-fit: cover
+
+  .popup__picture-wrapper--zoomed &
+    max-height: none
+    height: auto
 
 .popup__controls-wrapper
   box-sizing: border-box
@@ -39,7 +54,7 @@
 
   background-color: transparent
 
-  @media (min-width: $break-point--small)
+  @media (min-width: $break-point--picture)
     gap: 40px
 
 .popup__button
@@ -53,7 +68,7 @@
 
   border-radius: 50%
   border: none
-  background-color: rgb(gray, .4)
+  background-color: rgb(#808080, .4)
 
   cursor: pointer
   transition: background-color .2s
@@ -68,5 +83,30 @@
     background-color: rgb(#fff, .4)
     outline: none
 
+.popup__button--back-arrow
+  margin-left: auto
+
+  @media (min-width: $break-point--picture)
+    margin-left: 0
+
 .popup__button--forward-arrow
   transform: rotate(180deg)
+
+.popup__button--scale
+
+  display: none
+
+  & > .popup__minus-icon
+    display: none
+
+  @media (min-width: $break-point--picture)
+    display: flex
+
+.popup__button--minus
+
+  & > .popup__plus-icon
+    display: none
+
+  & > .popup__minus-icon
+    display: block
+

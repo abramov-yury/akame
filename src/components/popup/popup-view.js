@@ -11,6 +11,8 @@ export class PopupView extends AbstractView {
 
     this.options = options;
 
+    this.changeScale = this.changeScale.bind(this);
+
   }
 
   getTemplate () {
@@ -25,9 +27,34 @@ export class PopupView extends AbstractView {
 
   }
 
+  getButtonScale () {
+
+    return this.getElement().querySelector(".popup__button--scale");
+
+  }
+
+  getPopupPictureWrapper () {
+
+    return this.getElement().querySelector(".popup__picture-wrapper");
+
+  }
+
+  changeScale () {
+
+    this.getPopupPictureWrapper().classList.toggle("popup__picture-wrapper--zoomed");
+    this.getButtonScale().classList.toggle("popup__button--minus");
+
+  }
+
   buttonCrossHandler (callback) {
 
     this.getButtonCross().addEventListener("click", callback);
+
+  }
+
+  buttonScaleHandler () {
+
+    this.getButtonScale().addEventListener("click", this.changeScale);
 
   }
 

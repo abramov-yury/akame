@@ -19,6 +19,7 @@ export class PopupController {
   setHandlers () {
 
     this.view.buttonCrossHandler(this.removePopup);
+    this.view.buttonScaleHandler();
 
     document.addEventListener("keydown", this.onEscDown);
 
