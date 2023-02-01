@@ -1,3 +1,5 @@
+import { debounce } from "../../helpers/debounce.js";
+
 import { AbstractView } from "../../helpers/abstract-view.js";
 
 const template = require("./popup.pug");
@@ -5,11 +7,11 @@ const getPopupTemplate = (obj) => template(obj);
 
 export class PopupView extends AbstractView {
 
-  constructor (options) {
+  constructor () {
 
     super();
 
-    this.options = options;
+    this.timeout = 150;
 
     this.changeScale = this.changeScale.bind(this);
 
@@ -18,6 +20,12 @@ export class PopupView extends AbstractView {
   getTemplate () {
 
     return getPopupTemplate(this.options);
+
+  }
+
+  getPictureWrapper () {
+
+    return this.getElement().querySelector(".popup__picture-wrapper");
 
   }
 
@@ -30,6 +38,18 @@ export class PopupView extends AbstractView {
   getButtonScale () {
 
     return this.getElement().querySelector(".popup__button--scale");
+
+  }
+
+  getButtonBackArrow () {
+
+    return this.getElement().querySelector(".popup__button--back-arrow");
+
+  }
+
+  getButtonForwardArrow () {
+
+    return this.getElement().querySelector(".popup__button--forward-arrow");
 
   }
 
@@ -55,6 +75,18 @@ export class PopupView extends AbstractView {
   buttonScaleHandler () {
 
     this.getButtonScale().addEventListener("click", this.changeScale);
+
+  }
+
+  buttonBackArrowHandler (callback) {
+
+    this.getButtonBackArrow().addEventListener("click", debounce(callback, this.timeout));
+
+  }
+
+  buttonForwardArrowHandler (callback) {
+
+    this.getButtonForwardArrow().addEventListener("click", debounce(callback, this.timeout));
 
   }
 

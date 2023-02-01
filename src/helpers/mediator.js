@@ -36,4 +36,10 @@ export const MEDIATOR = {
 
   },
 
+  getCurrentPhotos () {
+
+    throw new Error("Mediator method not implemented: GET_CURRENT_PHOTOS");
+
+  },
+
 };

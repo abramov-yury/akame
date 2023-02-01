@@ -1,3 +1,4 @@
+import { MEDIATOR } from "../../helpers/mediator.js";
 import { render } from "../../helpers/render.js";
 import { shuffle } from "../../helpers/shuffle.js";
 
@@ -15,14 +16,22 @@ export class GalleryController {
     this.view = null;
     this.model = null;
     this.photoController = null;
+    this.currentPhotos = null;
 
     this.onFilterControlChange = this.onFilterControlChange.bind(this);
+    this.getCurrentPhotos = this.getCurrentPhotos.bind(this);
 
   }
 
   setHandlers () {
 
     this.view.setFiltersControlsHandler(this.onFilterControlChange);
+
+  }
+
+  setMediatorMethods () {
+
+    MEDIATOR.getCurrentPhotos = this.getCurrentPhotos;
 
   }
 
@@ -33,6 +42,7 @@ export class GalleryController {
     this.view = new GalleryView(this.model.filters);
     this.setHandlers();
     this.createPhotos(this.model.pictures);
+    this.setMediatorMethods();
     render(this.container, this.view.getElement());
 
   }
@@ -47,6 +57,7 @@ export class GalleryController {
   createPhotos (arr) {
 
     shuffle(arr);
+    this.currentPhotos = arr;
 
     arr.forEach((item) => {
 
@@ -79,6 +90,12 @@ export class GalleryController {
 
     this.view.clearGallery();
     this.createPhotos(arr);
+
+  }
+
+  getCurrentPhotos () {
+
+    return this.currentPhotos;
 
   }
 
