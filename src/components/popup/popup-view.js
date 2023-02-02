@@ -13,8 +13,6 @@ export class PopupView extends AbstractView {
 
     this.timeout = 150;
 
-    this.changeScale = this.changeScale.bind(this);
-
   }
 
   getTemplate () {
@@ -59,22 +57,15 @@ export class PopupView extends AbstractView {
 
   }
 
-  changeScale () {
-
-    this.getPopupPictureWrapper().classList.toggle("popup__picture-wrapper--zoomed");
-    this.getButtonScale().classList.toggle("popup__button--minus");
-
-  }
-
   buttonCrossHandler (callback) {
 
     this.getButtonCross().addEventListener("click", callback);
 
   }
 
-  buttonScaleHandler () {
+  buttonScaleHandler (callback) {
 
-    this.getButtonScale().addEventListener("click", this.changeScale);
+    this.getButtonScale().addEventListener("click", callback);
 
   }
 

@@ -15,6 +15,8 @@ export class PopupController {
 
     this.view = null;
     this.masterpieceController = null;
+    this.zoom = false;
+    this.scrollSpeed = 50;
 
     this.removePopup = this.removePopup.bind(this);
     this.onEscDown = this.onEscDown.bind(this);
@@ -22,19 +24,42 @@ export class PopupController {
     this.onArrowRightDown = this.onArrowRightDown.bind(this);
     this.showPreviousPhoto = this.showPreviousPhoto.bind(this);
     this.showNextPhoto = this.showNextPhoto.bind(this);
+    this.onNumpadAddDown = this.onNumpadAddDown.bind(this);
+    this.onNumpadSubtractDown = this.onNumpadSubtractDown.bind(this);
+    this.onArrowUpDown = this.onArrowUpDown.bind(this);
+    this.onArrowDownDown = this.onArrowDownDown.bind(this);
+    this.changeScale = this.changeScale.bind(this);
 
   }
 
   setHandlers () {
 
     this.view.buttonCrossHandler(this.removePopup);
-    this.view.buttonScaleHandler();
+    this.view.buttonScaleHandler(this.changeScale);
     this.view.buttonBackArrowHandler(this.showPreviousPhoto);
     this.view.buttonForwardArrowHandler(this.showNextPhoto);
 
     document.addEventListener("keydown", this.onEscDown);
     document.addEventListener("keydown", this.onArrowLeftDown);
     document.addEventListener("keydown", this.onArrowRightDown);
+    document.addEventListener("keydown", this.onNumpadAddDown);
+    document.addEventListener("keydown", this.onNumpadSubtractDown);
+    document.addEventListener("keydown", this.onArrowUpDown);
+    document.addEventListener("keydown", this.onArrowDownDown);
+
+  }
+
+  removePopup () {
+
+    this.view.removeElement();
+    document.body.classList.remove("app__popup-opened");
+    document.removeEventListener("keydown", this.onEscDown);
+    document.removeEventListener("keydown", this.onArrowLeftDown);
+    document.removeEventListener("keydown", this.onArrowRightDown);
+    document.removeEventListener("keydown", this.onNumpadAddDown);
+    document.removeEventListener("keydown", this.onNumpadSubtractDown);
+    document.removeEventListener("keydown", this.onArrowUpDown);
+    document.removeEventListener("keydown", this.onArrowDownDown);
 
   }
 
@@ -67,13 +92,37 @@ export class PopupController {
 
   }
 
-  removePopup () {
+  onNumpadAddDown (evt) {
 
-    this.view.removeElement();
-    document.body.classList.remove("app__popup-opened");
-    document.removeEventListener("keydown", this.onEscDown);
-    document.removeEventListener("keydown", this.onArrowLeftDown);
-    document.removeEventListener("keydown", this.onArrowRightDown);
+    if ((evt.key === "+" || evt.code === "NumpadAdd") && (!this.zoom)) this.changeScale();
+
+  }
+
+  onNumpadSubtractDown (evt) {
+
+    if ((evt.key === "-" || evt.code === "NumpadSubtract") && (this.zoom)) this.changeScale();
+
+  }
+
+  onArrowUpDown (evt) {
+
+    if (evt.key !== "ArrowUp" && evt.code !== "ArrowUp") return;
+
+    this.view.getElement().scrollBy({
+      top: -this.scrollSpeed,
+      behavior: "smooth",
+    });
+
+  }
+
+  onArrowDownDown (evt) {
+
+    if (evt.key !== "ArrowDown" && evt.code !== "ArrowDown") return;
+
+    this.view.getElement().scrollBy({
+      top: this.scrollSpeed,
+      behavior: "smooth",
+    });
 
   }
 
@@ -89,6 +138,14 @@ export class PopupController {
     this.options = obj;
     this.masterpieceController.remove();
     this.renderMasterpiece();
+
+  }
+
+  changeScale () {
+
+    this.view.getPopupPictureWrapper().classList.toggle("popup__picture-wrapper--zoomed");
+    this.view.getButtonScale().classList.toggle("popup__button--minus");
+    this.zoom = !this.zoom;
 
   }
 
