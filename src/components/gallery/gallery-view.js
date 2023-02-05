@@ -11,6 +11,29 @@ export class GalleryView extends AbstractView {
 
     this.options = options;
 
+    this.masonryLayoutSettings = {
+      0: {
+        columns: 1,
+        gap: 12,
+      },
+      426: {
+        columns: 2,
+        gap: 12,
+      },
+      768: {
+        columns: 3,
+        gap: 16,
+      },
+      1200: {
+        columns: 4,
+        gap: 20,
+      },
+      2560: {
+        columns: 5,
+        gap: 24,
+      },
+    };
+
   }
 
   getTemplate () {

@@ -11,8 +11,6 @@ export class ContentView extends AbstractView {
 
     this.options = options;
 
-    this.clear = this.clear.bind(this);
-
   }
 
   getTemplate () {

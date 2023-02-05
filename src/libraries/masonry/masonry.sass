@@ -1,0 +1,19 @@
+.masonry
+  position: relative
+  display: block
+
+.masonry__item
+  opacity: 0
+
+  top: 0
+  left: 0
+
+  will-change: transfrom
+  transition-property: opacity, transform
+  transition-duration: .3s
+
+  background-color: grey
+
+  .masonry--active > &
+    position: absolute
+    opacity: 1

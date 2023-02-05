@@ -1,13 +1,10 @@
-include ../../templates/helpers
 include ../../templates/picture
 
-+helpers
-
 -
-  className = getClassName("photo", locals.parent)
-  locals.path = "./img/gallery/"
-  locals.breakpoint = 768
-  locals.parent = "photo"
+  data = Object.assign({}, locals)
+  data.path = "./img/gallery/"
+  data.breakpoint = 768
+  data.parent = "photo"
 
-li(class=className)
-  +picture(locals, true)
+li.photo(data-ratio = (data.height / data.width).toFixed(2))
+  +picture(data, true)

@@ -77,39 +77,7 @@
     font-size: 24px
 
 .gallery__list
-  --gap: 10px
-
-  box-sizing: border-box
-
-  width: 100%
   margin: 0
-  padding: 0 0 var(--gap) 0
+  padding: 0
 
   list-style: none
-
-  transition-property: column-gap, padding-bottom
-  transition-duration: .4s
-
-  @media(min-width: $break-point--x-small)
-    --gap: 16px
-
-  @media (min-width: $break-point--small)
-    column-count: 2
-    column-gap: var(--gap)
-    padding-bottom: var(--gap)
-
-  @media (min-width: 856px)
-    column-count: 3
-
-  @media (min-width: $break-point--large)
-    --gap: 24px
-
-  @media (min-width: $break-point--extra-large)
-    column-count: 4
-
-  @media (min-width: $break-point--4K)
-    column-count: 5
-
-.gallery__photo
-  &:not(:last-child)
-    margin-bottom: var(--gap)

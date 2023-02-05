@@ -10,8 +10,6 @@ export class PhotoController {
     this.container = container;
     this.options = options;
 
-
-
     this.view = null;
 
     this.onPhotoClick = this.onPhotoClick.bind(this);

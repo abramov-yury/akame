@@ -1,4 +1,6 @@
 import { MEDIATOR } from "../../helpers/mediator.js";
+import { Masonry } from "../../libraries/masonry/masonry.js";
+
 import { render } from "../../helpers/render.js";
 import { shuffle } from "../../helpers/shuffle.js";
 
@@ -17,6 +19,7 @@ export class GalleryController {
     this.model = null;
     this.photoController = null;
     this.currentPhotos = null;
+    this.masonry = null;
 
     this.onFilterControlChange = this.onFilterControlChange.bind(this);
     this.getCurrentPhotos = this.getCurrentPhotos.bind(this);
@@ -35,21 +38,37 @@ export class GalleryController {
 
   }
 
+  setMasonryLayout () {
+
+    this.masonry = new Masonry(this.view.getGalleryList(), this.view.masonryLayoutSettings);
+
+  }
+
+  removeMasonryLayout () {
+
+    this.masonry.remove();
+
+  }
+
   initiate () {
 
     this.model = new GalleryModel();
     this.model.setData();
-    this.view = new GalleryView(this.model.filters);
+    this.view = new GalleryView([...this.model.filters]);
     this.setHandlers();
-    this.createPhotos(this.model.pictures);
+    this.createPhotos([...this.model.pictures]);
     this.setMediatorMethods();
     render(this.container, this.view.getElement());
+
+    this.setMasonryLayout();
 
   }
 
   createPhoto (options) {
 
-    this.photoController = new PhotoController(this.view.getGalleryList(), options);
+    const data = { ...options };
+    data.parent = "gallery";
+    this.photoController = new PhotoController(this.view.getGalleryList(), data);
     this.photoController.initiate();
 
   }
@@ -59,12 +78,7 @@ export class GalleryController {
     shuffle(arr);
     this.currentPhotos = arr;
 
-    arr.forEach((item) => {
-
-      item.parent = "gallery";
-      this.createPhoto(item);
-
-    });
+    arr.forEach((item) => this.createPhoto(item));
 
   }
 
@@ -90,6 +104,9 @@ export class GalleryController {
 
     this.view.clearGallery();
     this.createPhotos(arr);
+
+    if (this.masonry) this.removeMasonryLayout();
+    this.setMasonryLayout(); // sure after this.createPhotos
 
   }
 
