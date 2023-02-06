@@ -3,11 +3,17 @@
   flex-direction: column
 
 .gallery__header
+  z-index: 19
+  position: sticky
+  top: 0
+
   display: flex
   flex-direction: column
   gap: 20px
 
   padding: 30px 15px 20px
+
+  background-color: var(--color-background)
 
   @media(min-width: $break-point--medium)
     box-sizing: border-box
