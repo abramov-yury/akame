@@ -114,7 +114,7 @@ export class Masonry {
 
     const setItemHeight = (ratio) => {
 
-      const factor = ratio < 1 ? (Math.random() * .5) + 1 : ratio;
+      const factor = Number(ratio) < 1 ? (Math.random() * .5) + 1 : Number(ratio);
       return Math.round(factor * width);
 
     };
