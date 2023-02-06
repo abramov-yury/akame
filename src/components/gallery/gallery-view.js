@@ -1,3 +1,5 @@
+import { debounce } from "../../helpers/debounce.js";
+
 import { AbstractView } from "../../helpers/abstract-view.js";
 
 const template = require("./gallery.pug");
@@ -63,7 +65,7 @@ export class GalleryView extends AbstractView {
 
   setFiltersControlsHandler (callback) {
 
-    this.getFiltersControls().forEach((item) => item.addEventListener("change", callback));
+    this.getFiltersControls().forEach((item) => item.addEventListener("change", debounce(callback, 250)));
 
   }
 
