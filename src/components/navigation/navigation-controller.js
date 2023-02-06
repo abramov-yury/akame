@@ -47,6 +47,24 @@ export class NavigationController {
 
   }
 
+  onNavigationItemClick (evt) {
+
+    evt.preventDefault();
+
+    if (evt.currentTarget.dataset.point === this.mode) return;
+
+    this.view.makeLinkActive(evt.currentTarget);
+
+    MEDIATOR.clearContent();
+    this.renderContent(evt.currentTarget.dataset.point);
+
+    this.mode = evt.currentTarget.dataset.point;
+
+    this.view.hideNavigation();
+    MEDIATOR.showMenu();
+
+  }
+
   renderContent (value) {
 
     switch (value) {
@@ -66,24 +84,6 @@ export class NavigationController {
     }
 
     }
-
-  }
-
-  onNavigationItemClick (evt) {
-
-    evt.preventDefault();
-
-    if (evt.currentTarget.dataset.point === this.mode) return;
-
-    this.view.makeLinkActive(evt.currentTarget);
-
-    MEDIATOR.clearContent();
-    this.renderContent(evt.currentTarget.dataset.point);
-
-    this.mode = evt.currentTarget.dataset.point;
-
-    this.view.hideNavigation();
-    MEDIATOR.showMenu();
 
   }
 
