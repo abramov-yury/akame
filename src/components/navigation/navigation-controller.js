@@ -76,6 +76,13 @@ export class NavigationController {
 
     }
 
+    case this.data[1].value: {
+
+      MEDIATOR.mountAboutController();
+      break;
+
+    }
+
     case this.data[2].value: {
 
       MEDIATOR.mountGalleryController();

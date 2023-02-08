@@ -5,6 +5,7 @@ import { ContentView } from "./content-view.js";
 
 import { IntroController } from "../intro/intro-controller.js";
 import { GalleryController } from "../gallery/gallery-controller.js";
+import { AboutController } from "../about/about-controller.js";
 
 export class ContentController {
 
@@ -17,11 +18,13 @@ export class ContentController {
     this.view = null;
     this.introController = null;
     this.galleryController = null;
+    this.aboutController = null;
     this.currentController = null;
 
     this.clearContent = this.clearContent.bind(this);
     this.mountIntroController = this.mountIntroController.bind(this);
     this.mountGalleryController = this.mountGalleryController.bind(this);
+    this.mountAboutController = this.mountAboutController.bind(this);
 
   }
 
@@ -30,6 +33,7 @@ export class ContentController {
     MEDIATOR.clearContent = this.clearContent;
     MEDIATOR.mountIntroController = this.mountIntroController;
     MEDIATOR.mountGalleryController = this.mountGalleryController;
+    MEDIATOR.mountAboutController = this.mountAboutController;
 
   }
 
@@ -55,6 +59,14 @@ export class ContentController {
     this.galleryController = new GalleryController(this.view.getElement());
     this.galleryController.initiate();
     this.currentController = this.galleryController;
+
+  }
+
+  mountAboutController () {
+
+    this.aboutController = new AboutController(this.view.getElement());
+    this.aboutController.initiate();
+    this.currentController = this.aboutController;
 
   }
 
