@@ -1,0 +1,66 @@
+.skill
+  box-sizing: border-box
+  width: 100px
+
+  display: flex
+  flex-direction: column
+  align-items: center
+  gap: 10px
+
+
+.skill__progressbar
+  position: relative
+
+  width: 100px
+  height: 100px
+
+.skill__outer
+  box-sizing: border-box
+  height: 100%
+  padding: 10px
+
+  border-radius: 50%
+  box-shadow: 6px 6px 10px -1px rgba(#3D405B, .15), -6px -6px 10px -1px rgba(#F4F1DE, .7)
+
+.skill__inner
+  box-sizing: border-box
+  height: 100%
+
+  display: flex
+  justify-content: center
+  align-items: center
+
+  border-radius: 50%
+  box-shadow: inset 4px 4px 6px -1px rgba(#3D405B, .2), inset -4px -4px 6px -1px rgba(#F4F1DE, .7), -.5px -.5px #F4F1DE, .5px .5px rgba(#3D405B, .15), 0 12px 10px -10px rgba(#3D405B, .05)
+
+.skill__value
+  font-size: 15px
+  font-weight: 700
+  line-height: 1
+
+.skill__track
+  position: absolute
+
+  top: 0
+  left: 0
+
+  & > circle
+    fill: none
+    stroke: url(#gradient-color)
+    stroke-width: 10px
+    stroke-dasharray: var(--circumference)
+    stroke-dashoffset: var(--circumference)
+    stroke-linecap: butt
+    animation: fill-track var(--duration) linear forwards
+    transform-origin: center
+    transform: rotate(-90deg)
+
+@keyframes fill-track
+  100%
+    stroke-dashoffset: var(--difference)
+
+.skill__name
+  font-size: 15px
+  font-weight: 600
+  line-height: 1.2
+  text-align: center
