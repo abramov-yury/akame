@@ -1,6 +1,8 @@
 {
   "skills": [
-    {"name": "Subject Knowledge", "value": 100},
-    {"name": "Attention to detail", "value": 20}
+    {"name": "Subject Knowledge", "value": 85},
+    {"name": "Attention to detail", "value": 95},
+    {"name": "People experience", "value": 75},
+    {"name": "Exploring technology", "value": 90}
   ]
 }

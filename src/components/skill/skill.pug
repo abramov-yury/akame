@@ -3,18 +3,17 @@
   let circumference = Math.round(2 * Math.PI * radius)
   let value = Math.round(circumference * (locals.value / 100))
   let difference = circumference - value
-  let coefficient = 0.05
-  let duration = `${locals.value * coefficient}s`
+  let duration = 3
 
 .skill(role="progressbar" aria-valuenow=locals.value aria-valuemin="0" aria-valuemax="100")
   .skill__progressbar
     .skill__outer
       .skill__inner
-        span.skill__value
+        span.skill__value(data-duration = duration)
     svg.skill__track(width=100 height=100 viewBox="0 0 100 100")
       defs
         linearGradient(id="gradient-color")
           stop(offset="0%" stop-color="var(--color-text--alternative)")
           stop(offset="100%" stop-color="var(--color-text)")
-      circle(cx="50" cy="50" r=radius stroke-linecap="round" style=`--circumference: ${circumference}; --difference: ${difference}; --duration: ${duration}`)
+      circle(cx="50" cy="50" r=radius stroke-linecap="round" style=`--circumference: ${circumference}; --difference: ${difference}; --duration: ${duration}s`)
   span.skill__name #{locals.name}

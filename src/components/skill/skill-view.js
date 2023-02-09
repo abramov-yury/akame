@@ -30,14 +30,16 @@ export class SkillView extends AbstractView {
   count () {
 
     let counter = 0;
+    const { duration } = this.getSkillValue().dataset;
+    const delay = 1000 * duration / 100;
 
     const interval = setInterval(() => {
 
-      if (counter === this.options.value) clearInterval(interval);
+      if (counter >= this.options.value) clearInterval(interval);
       this.getSkillValue().innerText = `${counter}%`;
       counter += 1;
 
-    }, 40);
+    }, delay);
 
   }
 
