@@ -1,32 +1,38 @@
 .about
-  --about-padding: 10px
-
-  display: flex
-  flex-direction: column
-  gap: 20px
-
-  padding-bottom: var(--about-padding)
+  display: grid
+  row-gap: 20px
+  height: 100%
 
   color: var(--color-text)
 
-.about__main
+  @media (min-width: $break-point--medium)
+    grid-template-rows: min-content auto auto
+    grid-template-columns: 1fr 1fr
+    row-gap: 40px
+    column-gap: 20px
+
+.about__text-wrapper
+  order: 1
+
   display: flex
   flex-direction: column
   gap: 20px
 
-.about__header
-  position: relative
-  display: flex
-  flex-direction: column-reverse
-  gap: 20px
+  padding: 0 10px
+
+  @media (min-width: $break-point--medium)
+    justify-content: center
 
 .about__title
   margin: 0
-  padding: 0 var(--about-padding)
 
   font-weight: 500
   font-size: 36px
   line-height: 1.2
+
+.about__title--greetings
+  @media (min-width: $break-point--medium)
+    padding-top: 20px
 
 .about__title--skills
   text-align: center
@@ -34,23 +40,25 @@
 .about__greetings-name
   font-weight: 700
 
+.about__picture
+  order: 0
+
+  @media (min-width: $break-point--medium)
+    order: 1
+
 .about__image
   width: 100%
   height: auto
 
   vertical-align: middle
 
-  @media (min-width: $break-point--x-small)
+  @media (min-width: 512px)
     height: 100vh
+    object-position: center
     object-fit: cover
-    object-position: right
 
-.about__text-wrapper
-  display: flex
-  flex-direction: column
-  gap: 20px
-
-  padding: 0 var(--about-padding)
+  @media (min-width: $break-point--medium)
+    height: 100%
 
 .about__text
   margin: 0
@@ -58,19 +66,44 @@
   font-weight: 500
   font-size: 15px
   line-height: 1.5
+  transition: font-size .4s
 
   @media (min-width: $break-point--small)
     font-size: 16px
 
 .about__skills
+  order: 1
+
   display: flex
   flex-direction: column
   gap: 20px
+
+  @media (min-width: $break-point--medium)
+    grid-column: 1 / -1
+    align-self: center
 
 .about__skills-wrapper
   display: flex
   flex-wrap: wrap
   justify-content: space-evenly
   gap: 10px
+  transition: gap .4s
 
-  padding: var(--about-padding)
+  padding: 10px
+
+  @media (min-width: $break-point--small)
+    gap: 14px
+
+  @media (min-width: $break-point--medium)
+    max-width: 80%
+    align-self: center
+
+.about__footer
+  order: 1
+  align-self: end
+
+  min-height: 20px
+  background-image: linear-gradient(to left, var(--color-text--alternative), var(--color-text))
+
+  @media (min-width: $break-point--medium)
+    grid-column: 1 / -1

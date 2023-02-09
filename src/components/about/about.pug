@@ -4,25 +4,25 @@ include ../../templates/picture
   let name = "Kira Volkova"
 
 section.about
-  .about__main
-    header.about__header
-      h2.about__title Hello! #[br] I'm
-        |
-        |
-        span.about__greetings-name #{name}
-      +picture({path: "/img/pictures/", name: "JBrlm6M", title: name, parent: "about" })
-    .about__text-wrapper
-      p.about__text.
-        Watching my dreams become a reality is truly something amazing.
-        In my spare time I love walking in the woods, puttering in my gardens and sitting down with a hot cup of coffee; but my true passion is photography. I love capturing life’s special moments, life goes way too fast!
-        Focusing more in Fine Art photography during academic years in college, but also passionate about applying it to documentary photography.
-      p.about__text.
-        My studio is located in the center of Berlin.
-        I am able to accommodate all of your studio wishes and have a lounging area for you to rest while you wait.
-        I also love shooting outdoors and am willing to meet you at your favourite spot.
-      p.about__text.
-        I can’t wait to hear from you and start capturing your life’s special moments!
+  .about__text-wrapper
+    h2.about__title.about__title--greetings Hello! #[br] I'm
+      |
+      |
+      span.about__greetings-name #{name}
+    p.about__text.
+      Watching my dreams become a reality is truly something amazing.
+      In my spare time I love walking in the woods, puttering in my gardens and sitting down with a hot cup of coffee; but my true passion is photography. I love capturing life’s special moments, life goes way too fast!
+      Focusing more in Fine Art photography during academic years in college, but also passionate about applying it to documentary photography.
+    p.about__text.
+      My studio is located in the center of Berlin.
+      I am able to accommodate all of your studio wishes and have a lounging area for you to rest while you wait.
+      I also love shooting outdoors and am willing to meet you at your favourite spot.
+    p.about__text.
+      I can’t wait to hear from you and start capturing your life’s special moments!
+  +picture({path: "/img/pictures/", name: "n2KckYmAGFY", title: name, parent: "about" })
   .about__skills
     h2.about__title.about__title--skills My skills
 
     .about__skills-wrapper
+
+  .about__footer
