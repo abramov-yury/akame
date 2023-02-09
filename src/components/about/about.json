@@ -1,5 +1,6 @@
 {
   "skills": [
-    {"name": "Subject Knowledge", "value": 90}
+    {"name": "Subject Knowledge", "value": 100},
+    {"name": "Attention to detail", "value": 20}
   ]
 }

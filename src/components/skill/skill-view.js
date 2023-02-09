@@ -10,9 +10,8 @@ export class SkillView extends AbstractView {
     super();
 
     this.options = options;
-    this.getSkillValue = this.getSkillValue.bind(this);
 
-    this.count(this.getSkillValue, this.options.value);
+    this.count();
 
   }
 
@@ -28,21 +27,17 @@ export class SkillView extends AbstractView {
 
   }
 
-  count (callback, value) {
+  count () {
 
     let counter = 0;
-    setTimeout(function tick () {
 
-      if (counter <= value) {
+    const interval = setInterval(() => {
 
-        callback().innerText = `${counter}%`;
-        setTimeout(tick, 15);
-
-      }
-
+      if (counter === this.options.value) clearInterval(interval);
+      this.getSkillValue().innerText = `${counter}%`;
       counter += 1;
 
-    }, 15);
+    }, 40);
 
   }
 

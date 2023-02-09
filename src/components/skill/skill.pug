@@ -3,7 +3,8 @@
   let circumference = Math.round(2 * Math.PI * radius)
   let value = Math.round(circumference * (locals.value / 100))
   let difference = circumference - value
-  let duration = `${locals.value * 0.02}s`
+  let coefficient = 0.05
+  let duration = `${locals.value * coefficient}s`
 
 .skill(role="progressbar" aria-valuenow=locals.value aria-valuemin="0" aria-valuemax="100")
   .skill__progressbar
