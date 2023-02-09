@@ -14,6 +14,12 @@
   flex-direction: column
   gap: 20px
 
+.about__header
+  position: relative
+  display: flex
+  flex-direction: column-reverse
+  gap: 20px
+
 .about__title
   margin: 0
   padding: 0 var(--about-padding)
@@ -22,19 +28,22 @@
   font-size: 36px
   line-height: 1.2
 
+.about__title--skills
+  text-align: center
+
 .about__greetings-name
   font-weight: 700
-
-.about__header
-  display: flex
-  flex-direction: column-reverse
-  gap: 20px
 
 .about__image
   width: 100%
   height: auto
 
   vertical-align: middle
+
+  @media (min-width: $break-point--x-small)
+    height: 100vh
+    object-fit: cover
+    object-position: right
 
 .about__text-wrapper
   display: flex
@@ -50,6 +59,9 @@
   font-size: 15px
   line-height: 1.5
 
+  @media (min-width: $break-point--small)
+    font-size: 16px
+
 .about__skills
   display: flex
   flex-direction: column
@@ -58,6 +70,7 @@
 .about__skills-wrapper
   display: flex
   flex-wrap: wrap
-  gap: 20px
+  justify-content: space-evenly
+  gap: 10px
 
   padding: var(--about-padding)

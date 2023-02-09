@@ -3,6 +3,11 @@
     {"name": "Subject Knowledge", "value": 85},
     {"name": "Attention to detail", "value": 95},
     {"name": "People experience", "value": 75},
-    {"name": "Exploring technology", "value": 90}
+    {"name": "Exploring technology", "value": 90},
+    {"name": "Legal Knowledge", "value": 80},
+    {"name": "Business skills", "value": 70},
+    {"name": "Accessories", "value": 90},
+    {"name": "Compliance", "value": 75},
+    {"name": "Creation", "value": 95}
   ]
 }
