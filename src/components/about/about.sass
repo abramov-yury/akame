@@ -15,6 +15,11 @@
     grid-template-rows: auto auto
     row-gap: 20px
 
+  @media (min-width: 1440px)
+    grid-template-rows: auto
+    grid-template-columns: repeat(3, 1fr)
+    grid-gap: 5%
+
 .about__text-wrapper
   order: 1
 
@@ -26,6 +31,14 @@
 
   @media (min-width: $break-point--medium)
     justify-content: center
+    padding-right: 0
+
+  @media (min-width: $break-point--large)
+    padding-right: 10px
+    padding-left: 0
+
+  @media (min-width: $break-point--extra-large)
+    padding: 0
 
 .about__title
   margin: 0
@@ -33,6 +46,9 @@
   font-weight: 500
   font-size: 36px
   line-height: 1.2
+
+  @media (min-width: $break-point--extra-large)
+    font-size: 40px
 
 .about__title--greetings
   @media (min-width: $break-point--medium)
@@ -80,6 +96,9 @@
   @media (min-width: $break-point--small)
     font-size: 16px
 
+  @media (min-width: $break-point--extra-large)
+    font-size: 18px
+
 .about__skills
   order: 1
 
@@ -94,6 +113,10 @@
   @media (min-width: $break-point--large)
     grid-column: 2 / -1
     grid-row: 2 / -1
+
+  @media (min-width: 1440px)
+    grid-column: 3 / -1
+    grid-row: auto
 
 .about__skills-wrapper
   display: flex
