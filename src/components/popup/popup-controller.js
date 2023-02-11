@@ -52,7 +52,7 @@ export class PopupController {
   removePopup () {
 
     this.view.removeElement();
-    document.body.classList.remove("app__popup-opened");
+    document.body.classList.remove("app__overflow-hidden");
     document.removeEventListener("keydown", this.onEscDown);
     document.removeEventListener("keydown", this.onArrowLeftDown);
     document.removeEventListener("keydown", this.onArrowRightDown);
@@ -68,7 +68,7 @@ export class PopupController {
     this.view = new PopupView();
     this.renderMasterpiece();
     this.setHandlers();
-    document.body.classList.add("app__popup-opened");
+    document.body.classList.add("app__overflow-hidden");
 
     render(this.container, this.view.getElement());
 

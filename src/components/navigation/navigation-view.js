@@ -17,6 +17,7 @@ export class NavigationView extends AbstractView {
       link: "navigation__link",
       active: "navigation__link--active",
     };
+    this.breakpoint = 576;
 
     this.showNavigation = this.showNavigation.bind(this);
 
@@ -32,11 +33,17 @@ export class NavigationView extends AbstractView {
 
     this.getElement().classList.add(this.cls.show);
 
+    if (window.innerWidth > this.breakpoint) return;
+    document.body.classList.add("app__overflow-hidden");
+
   }
 
   hideNavigation () {
 
     this.getElement().classList.remove(this.cls.show);
+
+    if (!document.body.classList.contains("app__overflow-hidden")) return;
+    document.body.classList.remove("app__overflow-hidden");
 
   }
 
