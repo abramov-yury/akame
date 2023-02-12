@@ -6,7 +6,7 @@
   color: var(--color-text)
 
   @media (min-width: $break-point--medium)
-    grid-template-rows: min-content auto auto
+    grid-template-rows: min-content auto
     grid-template-columns: 1fr 1fr
     row-gap: 40px
     column-gap: 20px
@@ -105,6 +105,7 @@
   display: flex
   flex-direction: column
   gap: 20px
+  padding-bottom: 20px
 
   @media (min-width: $break-point--medium)
     grid-column: 1 / -1
@@ -125,7 +126,7 @@
   gap: 10px
   transition: gap .4s
 
-  padding: 10px
+  padding: 10px 10px 0 10px
 
   @media (min-width: $break-point--small)
     gap: 14px
@@ -133,16 +134,3 @@
   @media (min-width: $break-point--medium)
     max-width: 80%
     align-self: center
-
-.about__footer
-  order: 1
-  align-self: end
-
-  min-height: 20px
-  background-image: linear-gradient(to left, var(--color-text--alternative), var(--color-text))
-
-  @media (min-width: $break-point--medium)
-    grid-column: 1 / -1
-
-  @media (min-width: $break-point--large)
-   display: none
