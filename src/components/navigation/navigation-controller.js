@@ -90,6 +90,13 @@ export class NavigationController {
 
     }
 
+    case this.data[3].value: {
+
+      MEDIATOR.mountBlogController();
+      break;
+
+    }
+
     }
 
   }

@@ -36,6 +36,12 @@ export const MEDIATOR = {
 
   },
 
+  mountBlogController () {
+
+    throw new Error("Mediator method not implemented: MOUNT_BLOG_CONTROLLER");
+
+  },
+
   createPopup () {
 
     throw new Error("Mediator method not implemented: CREATE_POPUP");
