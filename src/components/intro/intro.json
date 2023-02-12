@@ -1,9 +1,19 @@
 {
   "pictures": [
-    {"name": "11565293", "title": "Yard cat looking into your eyes", "category": "animals"},
-    {"name": "371160", "title": "Smiling girl with green hair", "category": "people"},
-    {"name": "13687010", "title": "Delicate daisies", "category": "nature"},
-    {"name": "2128270", "title": "Closeup photo of a sandy beach", "category": "nature"},
-    {"name": "1813862", "title": "Coffee with beautiful foam in a turquoise cup", "category": "delicious"}
+    {"name": "11565293", "title": "Yard cat looking into your eyes", "category": "animals",
+      "quote": "You don't photograph, you create."
+    },
+    {"name": "371160", "title": "Smiling girl with green hair", "category": "people",
+      "quote": "A good snapshot stops a fleeting moment."
+    },
+    {"name": "13687010", "title": "Delicate daisies", "category": "nature",
+      "quote": "Photos hold secrets, just like people do."
+    },
+    {"name": "2128270", "title": "Closeup photo of a sandy beach", "category": "nature",
+      "quote": "Photos are evidence that we lived."
+    },
+    {"name": "1813862", "title": "Coffee with beautiful foam in a turquoise cup", "category": "delicious",
+      "quote": "I didn't choose a photo. It chose me."
+    }
   ]
 }
